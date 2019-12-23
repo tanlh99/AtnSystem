@@ -16,12 +16,13 @@ if($link === false){
 }
  
 // Escape user inputs for security
+
 $id = pg_escape_string ($link, $_REQUEST['id']);
 $name = pg_escape_string ($link, $_REQUEST['name']);
 $cat = pg_escape_string ($link, $_REQUEST['cat']);
 $date = pg_escape_string ($link, $_REQUEST['date']);
 $price = pg_escape_string ($link, $_REQUEST['price']);
-$desc = pg_escape_string ($link, $_REQUEST['desc']);
+$description = pg_escape_string ($link, $_REQUEST['desc']);
 
 echo $id;
 echo "";
@@ -35,25 +36,24 @@ echo $price;
 echo "";
 echo $desc;
 echo "";
-
+ 
 // Attempt insert query execution
-$sql = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
-VALUES ('$id', '$name', '$cat','$date','$price','$desc')";
+$sql = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) 
+VALUES ('$id', '$name', '$cat','$date','$price','abc')";
 echo $sql;
 
-$sql2 = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
+$sql2 = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) 
 VALUES ('02', 'Me', 'CatX','2019-12-20','11','abc')";
 
 $sql3 = 'INSERT INTO public."Product" (
-"Id", "Product_Name", "Category", "Date", "Price", "Descriptions") VALUES ('."
-
-'121210'::character varying,
-'my product XYZ'::character varying,
-'kit'::character varying,
+"Date", "Id", "Product_Name", "Catergory", "Descriptions", "Price") VALUES ('."
 '2019-12-20'::date, 
-'12'::character varying, 
-'my product xyz'::character varying".'
-returning "Id"';
+'121210'::character varying(20), 
+'my product XYZ'::character varying(100), 
+'kit'::character varying(40), 
+'my product xyz'::character varying(200), 
+'12'::character varying)".
+'returning "Id"';
 echo $sql3;
 
 $result = pg_query($link, $sql3);
@@ -66,5 +66,6 @@ if($result){
 }
  
 // Close connection
+
 pg_close($link);
 ?>
