@@ -38,7 +38,7 @@ echo "";
 
 // Attempt insert query execution
 $sql = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
-VALUES ('$id', '$name', '$cat','$date','$price','abc')";
+VALUES ('$id', '$name', '$cat','$date','$price','$desc')";
 echo $sql;
 
 $sql2 = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
