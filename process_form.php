@@ -5,7 +5,7 @@ $HOST = "ec2-107-21-255-181.compute-1.amazonaws.com";
 $PORT = "5432";
 $DBNAME = "d69acd8leq4v0c";
 $USER = "gpzpokwwiitgwz";
-$PASSWORD = "50c502f726bc61052e7337d64d1fe9b8bac3a783cef2486f07d92642cbc58f18"
+$PASSWORD = "50c502f726bc61052e7337d64d1fe9b8bac3a783cef2486f07d92642cbc58f18";
 
 $link = pg_connect("dbname=d69acd8leq4v0c host=ec2-107-21-255-181.compute-1.amazonaws.com
 port=5432 user=gpzpokwwiitgwz password=50c502f726bc61052e7337d64d1fe9b8bac3a783cef2486f07d92642cbc58f18 sslmode=require");
