@@ -14,6 +14,7 @@ port=5432 user=gpzpokwwiitgwz password=50c502f726bc61052e7337d64d1fe9b8bac3a783c
 if($link === false){
     die("ERROR: Could not connect.");
 }
+else {echo "Connected";}
 
 // Escape user inputs for security
 
