@@ -42,7 +42,7 @@ VALUES ('$id', '$name', '$cat','$date','$price','$desc')";
 echo $sql;
 
 $sql2 = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
-VALUES ('02', 'Me', 'CatX','2019-12-20',11,'abc')";
+VALUES ('02', 'Me', 'CatX','2019-12-20','11','abc')";
 
 $sql3 = 'INSERT INTO public."Product" (
 "Id", "Product_Name", "Category", "Date", "Price", "Descriptions") VALUES ('."
@@ -51,7 +51,7 @@ $sql3 = 'INSERT INTO public."Product" (
 'my product XYZ'::character varying(100),
 'kit'::character varying(40),
 '2019-12-20'::date, 
-'12'::integer) 
+'12'::character varying(10) 
 'my product xyz'::character varying(200) ".'
 returning "Id"';
 echo $sql3;
