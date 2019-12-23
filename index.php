@@ -61,6 +61,6 @@ if($result){
 }
  
 // Close connection
-
 pg_close($link);
+
 ?>
