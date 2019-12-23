@@ -17,30 +17,34 @@ if($link === false){
 
 // Escape user inputs for security
 
-$id = pg_escape_string ($link, $_REQUEST['id']);
-$name = pg_escape_string ($link, $_REQUEST['name']);
-$cat = pg_escape_string ($link, $_REQUEST['cat']);
-$date = pg_escape_string ($link, $_REQUEST['date']);
-$price = pg_escape_string ($link, $_REQUEST['price']);
-$description = pg_escape_string ($link, $_REQUEST['desc']);
+$id =  pg_escape_string($link,$_REQUEST['id']);
+$name = pg_escape_string($link,$_REQUEST['name']);
+$cat = pg_escape_string($link,$_REQUEST['cat']);
+$date =  pg_escape_string($link,$_REQUEST['date']);
+$price =  pg_escape_string($link,$_REQUEST['price']);
+$description = pg_escape_string($link,$_REQUEST['description']);
+echo "<br>";
+echo "Product ID: " ;
+echo $id."<br>";
+echo "Product Name: " ;
+echo $name."<br>";
+echo "Category: " ;
+echo $cat."<br>";
+echo "Date: " ;
+echo $date."<br>";
+echo "Price: " ;
+echo $price."USD <br>";
+echo "Description: " ;
+echo $description."<br>";
 
-// Attempt insert query execution
-//$sql = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) VALUES ('$id', '$name', '$cat','$date','$price','abc')";echo $sql;
 
-//$sql2 = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) VALUES ('02', 'Me', 'CatX','2019-12-20','11','abc')";
-
-$sql3 = 'INSERT INTO public."Product" (
+$sql4 = 'INSERT INTO public."Product" (
 "Date", "Id", "Product_Name", "Catergory", "Descriptions", "Price") VALUES ('."
-'$date'::date, 
-'$id'::character varying(20), 
-'$name'::character varying(100), 
-'$cat'::character varying(40), 
-'$description'::character varying(200), 
-'$price'::character varying)".
-'returning "Id"';
-echo $sql3;
+'$date'::date, '$id'::character varying(20), '$name'::character varying(100), '$cat'::character varying(40), '$description'::character varying(200), '$price'::integer)".
+ 'returning "Id"';
+echo $sql4;
 
-$result = pg_query($link, $sql3);
+$result = pg_query($link, $sql4);
 echo $result;
 
 if($result){
@@ -48,7 +52,7 @@ if($result){
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_error($link);
 }
- 
+
 // Close connection
 
 pg_close($link);
