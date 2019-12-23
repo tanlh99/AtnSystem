@@ -21,17 +21,30 @@ $name = mysqli_real_escape_string($link, $_REQUEST['name']);
 $cat = mysqli_real_escape_string($link, $_REQUEST['cat']);
 $date = mysqli_real_escape_string($link, $_REQUEST['date']);
 $price = mysqli_real_escape_string($link, $_REQUEST['price']);
-$description = mysqli_real_escape_string($link, $_REQUEST['description']);
+$description = mysqli_real_escape_string($link, $_REQUEST['desc']);
 
- 
 // Attempt insert query execution
-$sql = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) VALUES ('$id', '$name', '$cat','$date','$price','$description')";
-if(pg_query($link, $sql)){
+$sql = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) VALUES ('$id', '$name', '$cat','$date','$price','abc')";
+echo $sql;
+
+$sql2 = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) VALUES ('02', 'Me', 'CatX','2019-12-20',11,'abc')";
+
+$sql3 = 'INSERT INTO public."Product" (
+"Date", "Id", "Product_Name", "Catergory", "Descriptions", "Price") VALUES ('."
+'2019-12-20'::date, '121210'::character varying(20), 'my product XYZ'::character varying(100), 'kit'::character varying(40), 'my product xyz'::character varying(200), '12'::integer)".
+ 'returning "Id"';
+echo $sql3;
+
+$result = pg_query($link, $sql3);
+echo $result;
+
+if($result){
     echo "Records added successfully.";
 } else{
     echo "ERROR: Could not able to execute $sql. " . pg_error($link);
 }
  
 // Close connection
+
 pg_close($link);
 ?>
