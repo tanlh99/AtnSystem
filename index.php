@@ -37,15 +37,15 @@ echo $desc;
 echo "";
 
 // Attempt insert query execution
-$sql = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) 
+$sql = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
 VALUES ('$id', '$name', '$cat','$date','$price','abc')";
 echo $sql;
 
-$sql2 = "INSERT INTO Product (Id, Product_Name, Catergory, Date, Price, Descriptions) 
+$sql2 = "INSERT INTO Product (Id, Product_Name, Category, Date, Price, Descriptions) 
 VALUES ('02', 'Me', 'CatX','2019-12-20',11,'abc')";
 
 $sql3 = 'INSERT INTO public."Product" (
-"Date", "Id", "Product_Name", "Catergory", "Descriptions", "Price") VALUES ('."
+"Date", "Id", "Product_Name", "Category", "Descriptions", "Price") VALUES ('."
 '2019-12-20'::date, '121210'::character varying(20), 'my product XYZ'::character varying(100), 
 'kit'::character varying(40), 'my product xyz'::character varying(200), '12'::integer)".
 'returning "Id"';
