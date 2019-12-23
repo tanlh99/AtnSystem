@@ -47,12 +47,12 @@ VALUES ('02', 'Me', 'CatX','2019-12-20','11','abc')";
 $sql3 = 'INSERT INTO public."Product" (
 "Id", "Product_Name", "Category", "Date", "Price", "Descriptions") VALUES ('."
 
-'121210'::character varying(20),
-'my product XYZ'::character varying(100),
-'kit'::character varying(40),
+'121210'::character varying,
+'my product XYZ'::character varying,
+'kit'::character varying,
 '2019-12-20'::date, 
-'12'::character varying(10) 
-'my product xyz'::character varying(200) ".'
+'12'::character varying, 
+'my product xyz'::character varying".'
 returning "Id"';
 echo $sql3;
 
